@@ -1,0 +1,12 @@
+.home{
+    width:280px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.affichage{
+    width:270px;
+    height: 30px;
+}

@@ -1,0 +1,7 @@
+.Touches{
+    display: grid;
+    grid-template-columns:repeat(4,65px);
+    grid-template-rows:  repeat(5,45px);
+    column-gap: 6px;
+    row-gap: 3px;
+}
