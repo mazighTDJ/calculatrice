@@ -20,13 +20,21 @@ export const toucheSlice = createSlice
                 return{
                     value:state.value+typeAction.payload
                 }
+            },
+            ADD_VALUE:(state,typeAction)=>{
+                return{
+                    value:state.value-typeAction.payload
+                }
+            },
+            retourneResult:(state)=>{
+                return {value:state.value}
             }
         }
     }
 )
 
 //exporter les action
-export const {setValue,add}= toucheSlice.actions
+export const {setValue,add,ADD_VALUE,retourneResult,initialState}= toucheSlice.actions
 
 //export les fonctions d'action
 export default toucheSlice.reducer
