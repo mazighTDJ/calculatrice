@@ -1,15 +1,19 @@
 import { useDispatch, useSelector } from "react-redux"
 import Touches from "./Touches/Touches.jsx"
 import "./home.css"
-import { useEffect, useState } from "react"
-import { initialState, retourneResult, setValue } from "../Feature/toucheSlice.js"
+import { memo, useEffect, useMemo, useState } from "react"
+import {  setValue } from "../Feature/toucheSlice.js"
+
+const Home=memo(useHome)
 
 
-
-export default function Home(){
+ function useHome(){
     
     
     const dispatch=useDispatch()
+
+    const valueSelector=useSelector(state=>state.touche.value)
+
     const [valeurEntrer,setValeurEntrer]=useState(0)
 
     const onChangeValeur=(e)=>{
@@ -17,20 +21,18 @@ export default function Home(){
         setValue(valeurEntrer)
     }
 
+    const onChangeValeurRecu=(value)=>{
+        setValeurEntrer(value)
+    }
     
-    useEffect(()=>{
-        /*const value=dispatch(retourneResult().payload)
-        if(value!=undefined){
-            setValeurEntrer(value)
-        }
-        */
-    },[])
 
     return(
         <div className="home">
-            <input type="number" className="affichage"  value={valeurEntrer} onChange={onChangeValeur} /> 
+            <input type="text" className="affichage"  value={valeurEntrer} onChange={onChangeValeur} /> 
 
-            <Touches  valueInitial={valeurEntrer} />
+            <Touches  valueInitial={valeurEntrer} onChangeValeurRecu={onChangeValeurRecu} />
         </div>
     )
 }
+
+export default Home

@@ -26,8 +26,8 @@ export const toucheSlice = createSlice
                     value:state.value-typeAction.payload
                 }
             },
-            retourneResult:(state)=>{
-                return {value:state.value}
+            retourneResult:(state,typeAction)=>{
+                return {value:initialState}
             }
         }
     }
