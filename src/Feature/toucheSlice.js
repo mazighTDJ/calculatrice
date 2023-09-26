@@ -1,5 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
+import { createSelector } from 'reselect'
+
 
 //creation de la slice 
 //name
@@ -22,16 +24,21 @@ export const toucheSlice = createSlice
                 }
             },
             ADD_VALUE:(state,typeAction)=>{
-                return{
-                    value:state.value-typeAction.payload
-                }
+                
+                    state.value=state.value-typeAction.payload
+                
             },
-            retourneResult:(state,typeAction)=>{
-                return {value:initialState}
+            retourneResult:(state)=>{
+                return {...state}
             }
-        }
+        },
+        
     }
 )
+
+const selectTouche=(state)=>state.touche
+
+export const selectStateValue=createSelector([selectTouche], (touche)=>touche.value)
 
 //exporter les action
 export const {setValue,add,ADD_VALUE,retourneResult,initialState}= toucheSlice.actions
