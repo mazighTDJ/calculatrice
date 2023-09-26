@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
-import Touches from "./Touches/Touches.jsx"
+
 import "./home.css"
-import { memo, useEffect, useMemo, useState } from "react"
-import {  setValue, ADD_VALUE, retourneResult, initialState, selectStateValue} from "../Feature/toucheSlice.js"
+import { memo,  useState } from "react"
+import {   ADD_VALUE, selectStateValue} from "../Feature/toucheSlice.js"
 
 
 
-import listTouches from './Touches/gestionTouches'
-import { configureStore } from "@reduxjs/toolkit"
 
 const Home=memo(useHome)
 
@@ -24,9 +22,7 @@ const Home=memo(useHome)
         setValue(valeurEntrer)
     }
 
-    const onChangeValeurRecu=(value)=>{
-        setValeurEntrer(value)
-    }
+    
 
     const [resultat,setResult]=useState(0)
 

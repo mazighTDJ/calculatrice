@@ -15,22 +15,12 @@ export const toucheSlice = createSlice
             value:0
         },
         reducers:{
-            setValue:(state,typeAction)=>{
-                    state.value=typeAction.payload
-            },
-            add:(state,typeAction)=>{
-                return{
-                    value:state.value+typeAction.payload
-                }
-            },
             ADD_VALUE:(state,typeAction)=>{
                 
                     state.value=state.value-typeAction.payload
                 
             },
-            retourneResult:(state)=>{
-                return {...state}
-            }
+            
         },
         
     }
